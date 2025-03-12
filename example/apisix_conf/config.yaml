@@ -49,3 +49,10 @@ plugin_attr:
     export_addr:
       ip: "0.0.0.0"
       port: 9091
+
+  consul:
+    servers:
+      - "http://consul:8500"
+    dump:
+      path: "logs/consul.dump"
+      expire: 2592000

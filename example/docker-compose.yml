@@ -96,6 +96,16 @@ services:
     networks:
       apisix:
 
+  consul:
+    image: consul:1.15.1
+    container_name: consul
+    restart: always
+    networks:
+      - apisix
+    ports:
+      - '8500:8500'
+    command: 'agent -server -bootstrap-expect=1 -node=agent-one -client 0.0.0.0 -log-level info -data-dir=/consul/data -enable-script-checks'
+
 networks:
   apisix:
     driver: bridge
